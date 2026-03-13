@@ -29,8 +29,8 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"codeberg.org/kglitchy/vision-mcp/internal/client"
-	"codeberg.org/kglitchy/vision-mcp/internal/vision"
+	"github.com/SecKatie/vision-mcp/internal/client"
+	"github.com/SecKatie/vision-mcp/internal/vision"
 )
 
 var rootCmd = &cobra.Command{

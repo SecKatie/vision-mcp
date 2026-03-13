@@ -16,7 +16,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 package main
 
-import "codeberg.org/kglitchy/vision-mcp/cmd"
+import "github.com/SecKatie/vision-mcp/cmd"
 
 func main() {
 	cmd.Execute()

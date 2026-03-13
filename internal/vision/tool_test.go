@@ -26,8 +26,8 @@ import (
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 	"github.com/stretchr/testify/require"
 
-	"codeberg.org/kglitchy/vision-mcp/internal/client"
-	"codeberg.org/kglitchy/vision-mcp/internal/vision"
+	"github.com/SecKatie/vision-mcp/internal/client"
+	"github.com/SecKatie/vision-mcp/internal/vision"
 )
 
 func newTestServer(t *testing.T, apiBaseURL string) *mcp.Server {

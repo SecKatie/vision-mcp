@@ -1,4 +1,4 @@
-module codeberg.org/kglitchy/vision-mcp
+module github.com/SecKatie/vision-mcp
 
 go 1.26.1
 

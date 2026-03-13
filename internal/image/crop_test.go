@@ -25,7 +25,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	img "codeberg.org/kglitchy/vision-mcp/internal/image"
+	img "github.com/SecKatie/vision-mcp/internal/image"
 )
 
 func loadTestPNG(t *testing.T) []byte {

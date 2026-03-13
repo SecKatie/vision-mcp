@@ -25,7 +25,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"codeberg.org/kglitchy/vision-mcp/internal/client"
+	"github.com/SecKatie/vision-mcp/internal/client"
 )
 
 func makeClient(baseURL string) *client.Client {

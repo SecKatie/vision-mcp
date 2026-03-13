@@ -26,8 +26,8 @@ import (
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 
-	"codeberg.org/kglitchy/vision-mcp/internal/client"
-	img "codeberg.org/kglitchy/vision-mcp/internal/image"
+	"github.com/SecKatie/vision-mcp/internal/client"
+	img "github.com/SecKatie/vision-mcp/internal/image"
 )
 
 // Input is the input schema for the "see" tool.
@@ -60,10 +60,7 @@ type CropRegion struct {
 
 // Output is the structured result of the "see" tool.
 type Output struct {
-	Text             string `json:"text"`
-	Model            string `json:"model"`
-	PromptTokens     int    `json:"prompt_tokens,omitempty"`
-	CompletionTokens int    `json:"completion_tokens,omitempty"`
+	Text string `json:"text"`
 }
 
 var validDetails = map[string]bool{
@@ -119,10 +116,7 @@ func handle(ctx context.Context, apiClient *client.Client, input Input) (*mcp.Ca
 	}
 
 	return nil, Output{
-		Text:             resp.Text,
-		Model:            resp.Model,
-		PromptTokens:     resp.PromptTokens,
-		CompletionTokens: resp.CompletionTokens,
+		Text: resp.Text,
 	}, nil
 }
 
