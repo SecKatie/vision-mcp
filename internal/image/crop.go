@@ -33,10 +33,10 @@ import (
 // CropRegion defines a rectangular area using fractional coordinates.
 // All values are in [0.0, 1.0] where (0,0) is the top-left corner.
 type CropRegion struct {
-	X      float64
-	Y      float64
-	Width  float64
-	Height float64
+	X      float64 `json:"x"      jsonschema:"required,left edge fraction 0.0-1.0"`
+	Y      float64 `json:"y"      jsonschema:"required,top edge fraction 0.0-1.0"`
+	Width  float64 `json:"width"  jsonschema:"required,width fraction 0.0-1.0"`
+	Height float64 `json:"height" jsonschema:"required,height fraction 0.0-1.0"`
 }
 
 // Validate checks that the region is within bounds and non-empty.

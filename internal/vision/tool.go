@@ -47,15 +47,7 @@ type Input struct {
 
 	// Crop specifies a region to extract before sending to the API.
 	// All coordinates are fractional (0.0–1.0) relative to image dimensions.
-	Crop *CropRegion `json:"crop,omitempty" jsonschema:"crop region as fractional coordinates 0.0-1.0"`
-}
-
-// CropRegion defines a rectangular area using fractional coordinates.
-type CropRegion struct {
-	X      float64 `json:"x"      jsonschema:"required,left edge fraction 0.0-1.0"`
-	Y      float64 `json:"y"      jsonschema:"required,top edge fraction 0.0-1.0"`
-	Width  float64 `json:"width"  jsonschema:"required,width fraction 0.0-1.0"`
-	Height float64 `json:"height" jsonschema:"required,height fraction 0.0-1.0"`
+	Crop *img.CropRegion `json:"crop,omitempty" jsonschema:"crop region as fractional coordinates 0.0-1.0"`
 }
 
 // Output is the structured result of the "see" tool.
@@ -121,7 +113,7 @@ func handle(ctx context.Context, apiClient *client.Client, input Input) (*mcp.Ca
 }
 
 // applyCrop decodes the image from dataURL, crops it, and returns a new PNG data URL.
-func applyCrop(dataURL string, region CropRegion) (string, error) {
+func applyCrop(dataURL string, region img.CropRegion) (string, error) {
 	// Extract raw bytes from the data URL.
 	comma := strings.Index(dataURL, ",")
 	if comma < 0 {
@@ -132,14 +124,7 @@ func applyCrop(dataURL string, region CropRegion) (string, error) {
 		return "", fmt.Errorf("decoding image data: %w", err)
 	}
 
-	imgRegion := img.CropRegion{
-		X:      region.X,
-		Y:      region.Y,
-		Width:  region.Width,
-		Height: region.Height,
-	}
-
-	cropped, err := img.Crop(raw, imgRegion)
+	cropped, err := img.Crop(raw, region)
 	if err != nil {
 		return "", err
 	}
