@@ -1,0 +1,22 @@
+version: "2"
+
+linters:
+  enable:
+    - staticcheck
+    - gosec
+    - errcheck
+    - revive
+
+formatters:
+  enable:
+    - gofumpt
+    - goimports
+
+issues:
+  exclude-rules:
+    # G304: file path comes from user via MCP tool input — intentional.
+    - linters: [gosec]
+      text: "G304"
+    # G101: bearer token header is not a hardcoded credential literal.
+    - linters: [gosec]
+      text: "G101"

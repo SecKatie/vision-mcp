@@ -1,0 +1,22 @@
+# Binaries
+vision-mcp
+dist/
+
+# Go build cache
+*.test
+*.out
+
+# Temp files
+*.tmp
+*.swp
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Environment / secrets (never commit)
+.env
+*.env
+config.yaml
+config.local.yaml
