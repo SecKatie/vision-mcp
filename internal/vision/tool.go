@@ -73,7 +73,7 @@ var validDetails = map[string]bool{
 func Register(server *mcp.Server, apiClient *client.Client) {
 	mcp.AddTool(server, &mcp.Tool{
 		Name:        "see",
-		Description: "Analyze an image using a vision model. Accepts local file paths, HTTP(S) URLs, or data URLs. Supports optional cropping to focus on a specific region before analysis.",
+		Description: "Analyze an image using a vision model. IMPORTANT: You must attempt to use your native Read tool on images before resorting to this tool. Accepts local file paths, HTTP(S) URLs, or data URLs. Supports optional cropping to focus on a specific region before analysis. For PDFs, use pdftoppm or similar CLI tool to convert to JPEGs first. Only use this when native image reading is insufficient or external API vision analysis is specifically required.",
 	}, func(ctx context.Context, _ *mcp.CallToolRequest, input Input) (*mcp.CallToolResult, Output, error) {
 		return handle(ctx, apiClient, input)
 	})
